@@ -23,12 +23,16 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
         presenter = new MainPresenter();
         presenter.setView(this);
-
-        init();
     }
 
-    private void init(){
+    private void add(int num){
+        presenter.add(num);
         updateCount();
+    }
+
+    @Override
+    public void updateCount() {
+        binding.countTv.setText(presenter.getCounter());
     }
 
     public void onClick(View view){
@@ -45,15 +49,5 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
                 break;
 
         }
-    }
-
-    private void add(int num){
-        presenter.add(num);
-        updateCount();
-    }
-
-    @Override
-    public void updateCount() {
-        binding.countTv.setText(presenter.getCounter());
     }
 }

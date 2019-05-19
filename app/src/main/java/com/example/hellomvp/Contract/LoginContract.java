@@ -5,8 +5,10 @@ import com.example.hellomvp.Model.LoginRepository;
 public interface LoginContract {
     interface View{
         String getInputEmail();
+        void showMessageNotEnterEmail();
         void showMessageIncorrectEmail();
         String getInputPassword();
+        void showMessageNotEnterPassword();
         void showMessageIncorrectPassword();
         void hideSoftKeyboard();
         void showLoadingDialog();

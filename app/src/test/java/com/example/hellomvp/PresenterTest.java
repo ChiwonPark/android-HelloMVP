@@ -82,9 +82,13 @@ public class PresenterTest {
         String email = view.getInputEmail();
         String password = view.getInputPassword();
 
+        //로그인 요청
         inOrder.verify(repository).login(Mockito.eq(email),Mockito.eq(password), callbackListener.capture());
+
+        //로그인 성공
         callbackListener.getValue().onSuccess(mockUser);
 
+        inOrder.verify(view).hideLoadingDialog();
         inOrder.verify(view).showMessageSuccessLogin();
         inOrder.verify(view).moveActivity();
     }
@@ -108,9 +112,13 @@ public class PresenterTest {
         String email = view.getInputEmail();
         String password = view.getInputPassword();
 
+        //로그인 요청
         inOrder.verify(repository).login(Mockito.eq(email),Mockito.eq(password), callbackListener.capture());
+
+        //로그인 실패
         callbackListener.getValue().onFailure(errorCode, errorMessage);
 
+        //로딩 숨기고 에러 메세지 표시
         inOrder.verify(view).hideLoadingDialog();
         inOrder.verify(view).showMessageFailLogin(errorMessage);
     }

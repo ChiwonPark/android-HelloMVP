@@ -14,10 +14,10 @@ public interface MainContract {
     interface View{
         void updateCount();
     }
-
-    interface Model{
-        void add(int num);
-        int getCounter();
-    }
-
 }
+
+
+
+
+
+

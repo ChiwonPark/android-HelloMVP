@@ -1,5 +1,7 @@
 package com.example.hellomvp.Presenter;
 
+import android.text.TextUtils;
+
 import com.example.hellomvp.Contract.LoginContract;
 import com.example.hellomvp.Model.LoginRepository;
 import com.example.hellomvp.Model.User;
@@ -53,6 +55,14 @@ public class LoginPresenter implements LoginContract.Presenter {
     public void onClickEmailLogin2() {
         String inputEmail = view.getInputEmail();
         String inputPassword = view.getInputPassword();
+
+        if(TextUtils.isEmpty(inputEmail)){
+            view.showMessageNotEnterEmail();
+            return;
+        }else if(TextUtils.isEmpty(inputPassword)){
+            view.showMessageNotEnterPassword();
+            return;
+        }
 
         String emailRegex = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
         String passwordRegex = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[$@$!%*#?&])[A-Za-z\\d$@$!%*#?&]{8,}$"; //최소 8자리에 숫자, 문자, 특수문자 각각 1개 이상 포함
