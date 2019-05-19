@@ -107,6 +107,23 @@ public class LoginActivityTest {
         onView(withId(R.id.loginBt)).perform(click());
 
         //로그인 실패 메세지 표시
-        onView(withText("등록되지 않은 회원입니다")).inRoot(new ToastMatcher()).check(matches(isDisplayed()));
+        onView(withText("로그인 실패")).inRoot(new ToastMatcher()).check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void test_NotRegistedEmail(){
+        //화면에 이메일,비밀번호 입력란이 보이는지 체크
+        onView(ViewMatchers.withId(R.id.emailEt)).check(matches(isDisplayed()));
+        onView(ViewMatchers.withId(R.id.passwordEt)).check(matches(isDisplayed()));
+
+        //입력란에 이메일, 비밀번호를 입력
+        onView(withId(R.id.emailEt)).perform(typeText("steve.rogers@starkinc.com"));
+        onView(withId(R.id.passwordEt)).perform(typeText("imsteverogers123!@"));
+
+        //로그인 버튼 클릭
+        onView(withId(R.id.loginBt)).perform(click());
+
+        //로그인 실패 메세지 표시
+        onView(withText("앗 성공해버림")).inRoot(new ToastMatcher()).check(matches(isDisplayed()));
     }
 }
