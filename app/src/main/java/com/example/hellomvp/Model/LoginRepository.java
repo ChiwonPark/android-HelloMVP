@@ -8,7 +8,7 @@ public class LoginRepository implements LoginContract.Repository {
         if(email.equals("tony.stark@starkinc.com") && password.equals("imgroooot123!@")){
             callback.onSuccess(new User());
         }else{
-            callback.onFailure(4444, "등록되지 않은 회원입니다.");
+            callback.onFailure(4444, "등록되지 않은 회원입니다");
         }
 
     }

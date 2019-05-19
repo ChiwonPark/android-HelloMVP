@@ -36,7 +36,7 @@ public class LoginActivityTest {
         //로그인 버튼 클릭
         onView(withId(R.id.loginBt)).perform(click());
 
-        //로그인 성공 메세지 표시
+        //이메일 입력 메세지 표시
         onView(withText("이메일을 입력하세요")).inRoot(new ToastMatcher()).check(matches(isDisplayed()));
     }
 
@@ -53,7 +53,7 @@ public class LoginActivityTest {
         //로그인 버튼 클릭
         onView(withId(R.id.loginBt)).perform(click());
 
-        //로그인 성공 메세지 표시
+        //비밀번호 입력 메세지 표시
         onView(withText("비밀번호를 입력하세요")).inRoot(new ToastMatcher()).check(matches(isDisplayed()));
     }
 
@@ -71,7 +71,7 @@ public class LoginActivityTest {
         //로그인 버튼 클릭
         onView(withId(R.id.loginBt)).perform(click());
 
-        //로그인 성공 메세지 표시
+        //이메일 형식 오류 메세지 표시
         onView(withText("잘못된 이메일 형식입니다")).inRoot(new ToastMatcher()).check(matches(isDisplayed()));
     }
 
@@ -106,7 +106,7 @@ public class LoginActivityTest {
         //로그인 버튼 클릭
         onView(withId(R.id.loginBt)).perform(click());
 
-        //로그인 성공 메세지 표시
-        onView(withText("로그인 실패")).inRoot(new ToastMatcher()).check(matches(isDisplayed()));
+        //로그인 실패 메세지 표시
+        onView(withText("등록되지 않은 회원입니다")).inRoot(new ToastMatcher()).check(matches(isDisplayed()));
     }
 }

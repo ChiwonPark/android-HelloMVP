@@ -95,7 +95,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
 
     @Override
     public void showMessageFailLogin(String errorMsg) {
-        Toast.makeText(this, "로그인 실패", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "등록되지 않은 회원입니다", Toast.LENGTH_SHORT).show();
     }
 
     @Override
